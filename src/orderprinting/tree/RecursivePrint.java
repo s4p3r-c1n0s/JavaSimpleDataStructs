@@ -40,4 +40,29 @@ public class RecursivePrint extends TreePrint {
 		postOrder(r);
 		System.out.print(""+n.getValue()+" > ");
 	}
+
+
+	@Override
+	public void levelOrder(Node n){
+		if(n == null)
+			return;
+		int count = 1;
+		while(dfsOrder(n, 1, count++));
+		//dfsOrder(n, 1, 4);;
+	}
+
+	
+	private boolean dfsOrder(Node n, int deep, final int maxDepth) {
+		if(n == null)
+			return false;
+		
+		if(deep++ == maxDepth) {
+			System.out.print(""+n.getValue()+" > ");
+			return true;
+		} else {
+			boolean b = dfsOrder(n.getLeft(), deep, maxDepth);
+			boolean a = dfsOrder(n.getRight(), deep, maxDepth);
+			return a || b;
+		}
+	}
 }

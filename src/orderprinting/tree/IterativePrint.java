@@ -18,6 +18,46 @@ public class IterativePrint extends TreePrint {
 		IterativePrint ip = new IterativePrint();
 		ip.printAll();
 	}
+	
+	private boolean dfsOrder(Node root, int maxDepth) {
+		boolean nothingPrinted = true;
+		int deep = 1;
+		Stack<Integer> depth = new Stack<Integer>();
+		do {
+			if(root == null) {
+			
+				root = s.pop();
+				deep = depth.pop();
+			
+			} else {
+
+				if(deep == maxDepth){
+					System.out.print(" <"+root.getValue()+">");
+					nothingPrinted = false;
+				}
+				if(deep <  maxDepth) {
+					if(root.getRight() != null) {
+						s.push(root.getRight());
+						depth.push(deep+1);
+					}
+					deep++;
+					root = root.getLeft();
+					
+				} else {
+					root = null;	
+				}
+			}
+
+		} while(root !=null || s.peek() != null);
+
+		return !nothingPrinted;
+	}
+
+	@Override
+	public void levelOrder(Node root) {
+		int count = 1;
+		while(dfsOrder(root, count++));	
+	}
 
 	@Override
 	public void preOrder(Node root){

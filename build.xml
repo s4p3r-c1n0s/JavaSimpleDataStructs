@@ -14,7 +14,7 @@
         <mkdir dir="jar"/>
         <jar destfile="jar/Tree.jar" basedir="bin">
             <manifest>
-				<attribute name="Main-Class" value="orderprinting.graph.AdjList"/>
+				<attribute name="Main-Class" value="orderprinting.tree.RecursivePrint"/>
             </manifest>
         </jar>
     </target>

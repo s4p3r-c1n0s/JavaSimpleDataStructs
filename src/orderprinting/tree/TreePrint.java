@@ -17,5 +17,7 @@ public abstract class TreePrint implements Print{
 		System.out.println(" :Post-Order");
 		inOrder(tree.getRoot());
 		System.out.println(" :In-Order");
+		levelOrder(tree.getRoot());
+		System.out.println(" :Level-Order");
 	}
 }

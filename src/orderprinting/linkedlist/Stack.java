@@ -22,6 +22,10 @@ public class Stack<V extends Comparable<? super V>> {
 		return topNode == null ? null : topNode.getValue();
 	}
 
+	public int size() {
+		return list.size();
+	}
+
 	public static void main(String args[]) {
 		Stack<Integer> s = new Stack<Integer>();
 		s.push(1);

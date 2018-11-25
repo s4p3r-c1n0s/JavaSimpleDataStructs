@@ -5,6 +5,7 @@ public interface Print {
 	public void preOrder(Node n);
 	public void postOrder(Node n);
 	public void inOrder(Node n);
+	public void levelOrder(Node n);
 	
 }
 

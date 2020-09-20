@@ -61,16 +61,15 @@ public class IterativePrint extends TreePrint {
 
 	@Override
 	public void preOrder(Node root){
-		do {
-			if(root == null)
-				root = s.pop();
-			else {
-				System.out.print(" <"+root.getValue()+">");
-				if(root.getRight() != null)
-					s.push(root.getRight());
+		while(root != null) {
+			System.out.print(" <"+root.getValue()+">");
+			if(root.getRight() != null)
+				s.push(root.getRight());
+			if(root.getLeft() != null)
 				root = root.getLeft();
-			}
-		} while(root !=null || s.peek() != null);
+			else 
+				root = s.pop();
+		}
 	}
 	@Override
 	public void postOrder(Node root){
